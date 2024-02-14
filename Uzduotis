@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Tuple fizz = new Tuple(3, "Fizz");
+        Tuple buzz = new Tuple(5, "Buzz");
+        Tuple jazz = new Tuple(7, "Jazz");
+        
+        List<Tuple> tupleList = new ArrayList<>();
+        tupleList.add(fizz);
+        tupleList.add(buzz);
+        tupleList.add(jazz);
+        
+        int n = 20;
+        
+        for(int i = 1 ;i < n; i++){
+            Algoritm(tupleList,i);
+        }
+    }
+    
+    public static void Algoritm(List<Tuple> tupleList, int i){
+        System.out.print(i+" -> ");
+
+        for (Tuple tuple : tupleList) {
+            if(i % tuple.getIntValue() == 0){
+                System.out.print(tuple.getStringValue());
+            }
+        }
+        System.out.println(" ");
+    }
+}
+
+class Tuple {
+    private int intValue;
+    private String stringValue;
+
+    public Tuple(int intValue, String stringValue) {
+        this.intValue = intValue;
+        this.stringValue = stringValue;
+    }
+
+    public int getIntValue() {
+        return intValue;
+    }
+
+    public String getStringValue() {
+        return stringValue;
+    }
+}
